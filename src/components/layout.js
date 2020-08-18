@@ -4,6 +4,8 @@ import styled from "styled-components"
 
 import { rhythm, scale } from "../utils/typography"
 
+import Sidebar from "./sidebar"
+
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
@@ -59,12 +61,36 @@ class Layout extends React.Component {
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            maxWidth: rhythm(36),
           }}
         >
-          <header>{header}</header>
-          <main>{children}</main>
+          <header
+            style={{
+              textAlign: `center`,
+              padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            }}
+          >{header}</header>
+          <div
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+            }}
+          >
+            <main
+              style={{
+                flex: `70%`,
+                minWidth: rhythm(12),
+                padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+              }}
+            >{children}</main>
+            <aside
+              style={{
+                flex: `30%`,
+                minWidth: rhythm(6),
+                padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+              }}
+            ><Sidebar /></aside>
+          </div>
         </div>
         <Footer>
           © {new Date().getFullYear()}, Built with

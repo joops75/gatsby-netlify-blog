@@ -4,7 +4,7 @@ module.exports = {
     title: `Gatsby-Netlify Blog`,
     author: `Gatsby`,
     description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: process.env.NODE_ENV === `production` ? `https://gatsby-starter-blog-demo.netlify.com/` : `http://localhost:8000/`,
     social: {
       twitter: `gatsbyjs`,
     },
